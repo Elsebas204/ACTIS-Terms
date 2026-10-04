@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="description" content="Condiciones de Servicio de ACTIS, sistema de asistencia, control, seguimiento e información para Discord.">
+    <title>ACTIS | Condiciones de Servicio</title>
+
+    <style>
+        :root {
+            --bg: #08090b;
+            --surface: #101216;
+            --surface2: #15181e;
+            --border: #272b32;
+            --red: #e32636;
+            --red-light: #ff5361;
+            --text: #f0f1f3;
+            --muted: #a0a5af;
+            --soft: #747b86;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 25px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--red-light);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .top-line {
+            height: 3px;
+            background: linear-gradient(90deg, #65000a, var(--red), #65000a);
+        }
+
+        header {
+            position: relative;
+            overflow: hidden;
+            padding: 65px 20px 55px;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(227, 38, 54, .15), transparent 65%),
+                linear-gradient(180deg, #101115, #08090b);
+            border-bottom: 1px solid var(--border);
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: .13;
+            background-image:
+                linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+            background-size: 35px 35px;
+            mask-image: linear-gradient(to bottom, black, transparent);
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 20px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--red);
+            border-radius: 16px;
+            background: linear-gradient(145deg, #1b1013, #0b0b0d);
+            box-shadow: 0 0 35px rgba(227, 38, 54, .18);
+            color: var(--red-light);
+            font-size: 39px;
+            font-weight: 800;
+            letter-spacing: -3px;
+        }
+
+        .eyebrow {
+            color: var(--red-light);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: clamp(34px, 7vw, 52px);
+            font-weight: 800;
+            letter-spacing: 5px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 25px;
+            padding: 7px 14px;
+            border: 1px solid #492027;
+            border-radius: 30px;
+            background: rgba(227, 38, 54, .07);
+            color: #ff7a85;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .status::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--red);
+            box-shadow: 0 0 9px var(--red);
+        }
+
+        .container {
+            width: min(920px, 92%);
+            margin: 40px auto 70px;
+        }
+
+        .intro {
+            padding: 24px 26px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--red);
+            border-radius: 10px;
+            background: linear-gradient(110deg, #14161b, #0e1013);
+        }
+
+        .intro p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 9px;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro strong {
+            color: #fff;
+        }
+
+        .section {
+            padding: 27px 29px;
+            margin-bottom: 17px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--surface);
+            transition: border-color .2s ease, transform .2s ease;
+        }
+
+        .section:hover {
+            border-color: #493038;
+            transform: translateY(-1px);
+        }
+
+        .section h2 {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            color: #f7f7f8;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 13px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .number {
+            display: inline-grid;
+            place-items: center;
+            flex: 0 0 34px;
+            height: 34px;
+            border: 1px solid #54242b;
+            border-radius: 8px;
+            background: rgba(227, 38, 54, .08);
+            color: var(--red-light);
+            font-size: 12px;
+            letter-spacing: .5px;
+        }
+
+        .section p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section ul {
+            margin: 10px 0 14px 22px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .section li {
+            padding-left: 4px;
+            margin-bottom: 7px;
+        }
+
+        .section li::marker {
+            color: var(--red);
+        }
+
+        strong {
+            color: #e7e8eb;
+            font-weight: 650;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1 1 230px;
+            min-width: 0;
+            padding: 16px 18px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: var(--surface);
+            transition: border-color .2s ease, background .2s ease;
+        }
+
+        .link-card:hover {
+            border-color: var(--red);
+            background: var(--surface2);
+            text-decoration: none;
+        }
+
+        .link-icon {
+            display: grid;
+            place-items: center;
+            flex: 0 0 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: rgba(227, 38, 54, .1);
+            color: var(--red-light);
+            font-size: 18px;
+        }
+
+        .link-title {
+            display: block;
+            color: #f1f1f2;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .link-description {
+            display: block;
+            color: var(--soft);
+            font-size: 11px;
+        }
+
+        footer {
+            padding: 30px 20px;
+            border-top: 1px solid var(--border);
+            background: #090a0c;
+            text-align: center;
+        }
+
+        .footer-brand {
+            color: #eee;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        footer p {
+            color: var(--soft);
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        .footer-line {
+            width: 38px;
+            height: 2px;
+            margin: 15px auto;
+            background: var(--red);
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 48px 16px 42px;
+            }
+
+            h1 {
+                letter-spacing: 3px;
+            }
+
+            .subtitle {
+                font-size: 12px;
+            }
+
+            .container {
+                width: 94%;
+                margin: 25px auto 45px;
+            }
+
+            .section {
+                padding: 21px 19px;
+            }
+
+            .section h2 {
+                font-size: 16px;
+                gap: 10px;
+            }
+
+            .intro {
+                padding: 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .section,
+            .link-card {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-line"></div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">A</div>
+            <div class="eyebrow">Sentinel Systems</div>
+            <h1>ACTIS</h1>
+            <p class="subtitle">Assistance, Control, Tracking &amp; Information System</p>
+            <div class="status">Condiciones de Servicio</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="intro">
+            <p><strong>Última actualización:</strong> 4 de octubre de 2026</p>
+            <p>
+                Estas Condiciones de Servicio regulan el acceso y uso de ACTIS,
+                un bot diseñado para ofrecer herramientas de asistencia,
+                gestión, seguimiento y verificación dentro de Discord.
+            </p>
+            <p>
+                Al utilizar ACTIS, aceptas estas condiciones. Si no estás de
+                acuerdo con ellas, debes dejar de utilizar el servicio.
+            </p>
+        </div>
+
+        <section class="section">
+            <h2><span class="number">01</span> Descripción del Servicio</h2>
+            <p>
+                ACTIS (Assistance, Control, Tracking &amp; Information System)
+                es un bot independiente desarrollado para la plataforma Discord.
+                Su finalidad es proporcionar herramientas de asistencia,
+                organización, información y verificación a las comunidades
+                y equipos que lo utilicen.
+            </p>
+            <p>
+                Las funciones disponibles pueden variar según la configuración,
+                las actualizaciones y las necesidades operativas del proyecto.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2><span class="number">02</span> Requisitos de uso</h2>
+            <p>Para utilizar ACTIS, debes:</p>
+            <ul>
+                <li>Contar con una cuenta de Discord válida y cumplir los requisitos de edad establecidos por Discord.</li>
+                <li>Respetar las Condiciones de Servicio y las Normas de la Comunidad de Discord.</li>
+                <li>Utilizar el bot de manera legal, responsable y conforme a estas condiciones.</li>
+                <li>Contar con los permisos necesarios para administrar o configurar ACTIS en un servidor, cuando corresponda.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2><span class="number">03</span> Uso aceptable</h2>
+            <p>
+                Los usuarios se comprometen a utilizar ACTIS de manera
+                responsable. Queda prohibido:
+            </p>
+            <ul>
+                <li>Utilizar el servicio para actividades ilegales, fraudulentas, abusivas o maliciosas.</li>
+                <li>Intentar vulnerar, interrumpir, sobrecargar o comprometer la seguridad del bot.</li>
+                <li>Explotar errores o vulnerabilidades para obtener ventajas no autorizadas.</li>
+                <li>Utilizar ACTIS para acosar, amenazar, suplantar o perjudicar a otras personas.</li>
+                <li>Realizar acciones que infrinjan las políticas de Discord o la legislación aplicable.</li>
+            </ul>
+            <p>
+                El incumplimiento de estas normas puede dar lugar a la
+                restricción o suspensión del acceso a ACTIS.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2><span class="number">04</span> Verificaciones</h2>
+            <p>
+                ACTIS puede proporcionar herramientas de verificación
+                destinadas a facilitar la gestión de usuarios y el control
+                de acceso dentro de servidores de Discord.
+            </p>
+            <p>
+                Las verificaciones realizadas por ACTIS dependen de la
+                configuración establecida por los administradores del
+                servidor. El equipo de ACTIS no garantiza que los procesos
+                de verificación puedan detectar todos los intentos de
+                suplantación, fraude o acceso no autorizado.
+            </p>
+            <p>
+                Los administradores son responsables de configurar
+                adecuadamente los sistemas de verificación y de tomar
+                las decisiones de acceso correspondientes.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2><span class="number">05</span> Información y datos</h2>
+            <p>
+                Para proporcionar sus funciones, ACTIS puede procesar
+                información técnica y datos relacionados con las
+                interacciones de los usuarios, según los permisos
+                concedidos y las funciones utilizadas.
+            </p>
+            <p>
+                La información se utilizará para operar, mantener,
+                proteger y mejorar el servicio, de acuerdo con la
+                Política de Privacidad de ACTIS.
+            </p>
+            <p>
+                Puedes consultar los detalles sobre el tratamiento
+                de información en nuestra
+                <a href="privacy.html">Política de Privacidad</a>.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2><span class="number">06</span> Disponibilidad del Servicio</h2>
+            <p>
+                ACTIS se proporciona según su disponibilidad técnica.
+                Aunque se procura mantener un funcionamiento estable,
+                no se garantiza que el servicio esté disponible de
+                forma ininterrumpida, libre de errores o compatible
+                con todas las configuraciones de Discord.
+            </p>
+            <p>
+                El servicio puede ser modificado, actualizado,
+                suspendido o descontinuado temporal o permanentemente
+                por motivos técnicos, de seguridad, mantenimiento
+                u otras necesidades operativas.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2><span class="number">07</span> Integración con Discord</h2>
+            <p>
+                ACTIS funciona mediante Discord y sus interfaces
+                de programación (API). Su disponibilidad puede
+                depender de los servicios, permisos y condiciones
+                técnicas de Discord.
+            </p>
+            <p>
+                ACTIS es un proyecto independiente y no está afiliado,
+                respaldado, administrado ni patrocinado por Discord Inc.
+                Discord es una marca de su respectivo propietario.
+            </p>
+            <p>
+                Los usuarios también deben cumplir las
+                <a href="https://discord.com/terms" target="_blank" rel="noopener noreferrer">Condiciones de Servicio de Discord</a>
+                y las demás políticas aplicables de la plataforma.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2><span class="number">08</span> Propiedad intelectual</h2>
+            <p>
+                El nombre ACTIS, su identidad visual, elementos gráficos,
+                documentación y materiales originales asociados al
+                proyecto pertenecen a sus respectivos titulares.
+            </p>
+            <p>
+                No se permite copiar, modificar, distribuir o utilizar
+                estos elementos de manera que infrinja los derechos
+                de sus titulares o las leyes aplicables, salvo
+                autorización o permiso legal.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2><span class="number">09</span> Servicios y contenido de terceros</h2>
+            <p>
+                ACTIS puede interactuar con servicios, plataformas
+                o tecnologías de terceros para ofrecer sus funciones.
+                Dichos servicios se rigen por sus propias condiciones
+                y políticas.
+            </p>
+            <p>
+                El equipo de ACTIS no controla ni asume responsabilidad
+                por la disponibilidad, funcionamiento o prácticas
+                de privacidad de servicios externos.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2><span class="number">10</span> Limitación de responsabilidad</h2>
+            <p>
+                En la medida permitida por la legislación aplicable,
+                ACTIS se proporciona tal como está y según su
+                disponibilidad, sin garantías de funcionamiento
+                ininterrumpido o ausencia total de errores.
+            </p>
+            <p>
+                El equipo de ACTIS no será responsable de daños
+                indirectos, pérdida de información, interrupciones
+                del servicio o decisiones tomadas por administradores
+                o usuarios a partir de las funciones del bot,
+                salvo cuando la ley aplicable disponga lo contrario.
+            </p>
+            <p>
+                Nada en estas condiciones limita derechos o
+                responsabilidades que no puedan excluirse
+                legalmente.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2><span class="number">11</span> Modificaciones de estas Condiciones</h2>
+            <p>
+                Estas condiciones pueden actualizarse para reflejar
+                cambios en las funciones, operaciones o requisitos
+                legales de ACTIS.
+            </p>
+            <p>
+                Las modificaciones se publicarán en esta página,
+                junto con la fecha de actualización correspondiente.
+                Se recomienda revisar periódicamente este documento.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2><span class="number">12</span> Terminación</h2>
+            <p>
+                El equipo de ACTIS puede restringir o suspender el
+                acceso al servicio cuando exista un incumplimiento
+                de estas condiciones, un riesgo de seguridad,
+                una obligación legal u otra razón operativa válida.
+            </p>
+            <p>
+                Los usuarios pueden dejar de utilizar ACTIS en
+                cualquier momento, por ejemplo, retirando el bot
+                de su servidor o dejando de interactuar con él.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2><span class="number">13</span> Contacto</h2>
+            <p>
+                Para consultas, reportes o solicitudes relacionadas
+                con estas condiciones, utiliza los canales oficiales
+                de soporte de ACTIS que estén disponibles en Discord.
+            </p>
+            <p>
+                Evita enviar contraseñas, tokens u otras credenciales
+                al contactar con el equipo.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2><span class="number">14</span> Aceptación</h2>
+            <p>
+                Al invitar, configurar o utilizar ACTIS, confirmas
+                que has leído y comprendido estas Condiciones de
+                Servicio y que aceptas utilizarlas conforme a
+                sus disposiciones y a la legislación aplicable.
+            </p>
+        </section>
+
+        <div class="links">
+            <a class="link-card" href="privacy.html">
+                <span class="link-icon">⌑</span>
+                <span>
+                    <span class="link-title">Política de Privacidad</span>
+                    <span class="link-description">Consulta cómo se trata la información</span>
+                </span>
+            </a>
+            <a class="link-card" href="https://discord.com/terms" target="_blank" rel="noopener noreferrer">
+                <span class="link-icon">↗</span>
+                <span>
+                    <span class="link-title">Condiciones de Discord</span>
+                    <span class="link-description">Términos de la plataforma</span>
+                </span>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-brand">ACTIS</div>
+        <div class="footer-line"></div>
+        <p>Assistance, Control, Tracking &amp; Information System</p>
+        <p>Servicio independiente para Discord.</p>
+        <p>© 2026 ACTIS. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
